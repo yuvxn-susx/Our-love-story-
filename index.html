@@ -4,106 +4,210 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>For My Susu ❤️</title>
+<title>For My Susu 💗</title>
+
 <style>
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
   min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 20px;
   font-family: Georgia, serif;
   text-align: center;
-  color: #77334d;
-  background: linear-gradient(135deg, #ffd6e4, #fff0e8, #f9d9f5);
+  color: #8b4560;
+  background: linear-gradient(160deg, #ffe4ed, #fff3f5, #fce1f1);
   overflow-x: hidden;
 }
+
+.screen {
+  min-height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 24px 18px;
+  position: relative;
+}
+
+#intro { display: flex; }
+
 .card {
   width: 100%;
-  max-width: 430px;
-  padding: 30px 22px;
+  max-width: 420px;
+  padding: 28px 20px;
   background: #ffffffd9;
-  border-radius: 25px;
-  box-shadow: 0 12px 40px #b85b7625;
-  position: relative;
-  z-index: 1;
-}
-.heart {
-  font-size: 45px;
-  animation: beat 1s infinite alternate;
-}
-h1 { color: #d94f7c; }
-p { line-height: 1.8; }
-button {
-  border: 0;
+  border: 2px solid white;
   border-radius: 28px;
-  padding: 13px 21px;
-  margin: 7px;
-  background: #e65380;
+  box-shadow: 0 10px 35px #d88da533;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  color: #dc648b;
+  font-size: 30px;
+}
+
+p { line-height: 1.8; }
+
+.couple {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 8px;
+  margin: 15px 0 22px;
+}
+
+.bear {
+  font-size: 95px;
+  animation: bounce 1.4s infinite ease-in-out alternate;
+}
+
+.panda {
+  font-size: 85px;
+  animation: bounce 1.4s .4s infinite ease-in-out alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0) rotate(-4deg); }
+  to { transform: translateY(-12px) rotate(4deg); }
+}
+
+button {
+  border: none;
+  padding: 14px 23px;
+  margin: 8px;
+  border-radius: 30px;
+  background: #e66e96;
   color: white;
   font-size: 16px;
+  box-shadow: 0 5px 12px #d88da544;
   cursor: pointer;
 }
-#letter { display: none; }
-.float {
+
+button:active { transform: scale(.96); }
+
+.heart {
   position: fixed;
-  bottom: -30px;
-  animation: rise 7s linear infinite;
-  opacity: .65;
+  bottom: -40px;
+  z-index: 1;
   pointer-events: none;
+  animation: floatUp 8s linear infinite;
 }
-@keyframes beat {
-  to { transform: scale(1.18); }
+
+@keyframes floatUp {
+  to { transform: translateY(-115vh) rotate(35deg); }
 }
-@keyframes rise {
-  to { transform: translateY(-110vh) rotate(25deg); }
-}
+
+#letter { display: none; }
+
+.small { font-size: 14px; }
 </style>
 </head>
+
 <body>
-<div class="card">
-  <div class="heart">❤️</div>
-  <p>A little corner of the internet,</p>
-  <h1>Made just for you, Susu 💗</h1>
-  <p>
-    Distance may keep us apart for now,
-    but you're still such a special part of my world.
-  </p>
-  <p>I've got one little question for you... 🥹</p>
 
-  <button onclick="document.getElementById('letter').style.display='block';this.style.display='none'">
-    Open my heart 💌
-  </button>
+<!-- FIRST SCREEN -->
+<section id="intro" class="screen">
+  <div class="card">
+    <p>♡ a little surprise for you ♡</p>
 
-  <div id="letter">
-    <h2>Will you choose us again? 💍</h2>
+    <div class="couple">
+      <div class="bear">🐻</div>
+      <div class="panda">🐼</div>
+    </div>
+
+    <h1>Hi, my Susu! 💗</h1>
     <p>
-      If I could start our story all over again,
-      I'd still want to meet you, laugh with you,
-      annoy you, and make a thousand more memories
-      with you.
+      Your favourite little love story<br>
+      has something to tell you...
     </p>
-    <p>
-      Thank you for being you.
-      You're my favourite notification
-      and my favourite person. 🫶
-    </p>
-    <h2>One more chapter? ❤️</h2>
-    <p>Me and you, still choosing each other. 💕</p>
+
+    <p>🐻 + 🐼 = 💞</p>
+
+    <button onclick="enterSite()">
+      Tap to open, cutie 💌
+    </button>
+
+    <p class="small">made with lots of love ♡</p>
   </div>
-</div>
+</section>
+
+<!-- SECOND SCREEN -->
+<section id="home" class="screen">
+  <div class="card">
+    <div class="couple">
+      <div class="bear">🐻</div>
+      <div class="panda">🐼</div>
+    </div>
+
+    <h1>My favourite person ❤️</h1>
+
+    <p>
+      If I had to choose all over again,<br>
+      I'd still choose you, every single time.
+    </p>
+
+    <p>
+      Sooo... I have one tiny question<br>
+      for my favourite human 🥹💕
+    </p>
+
+    <button onclick="openLetter()">
+      Open my heart 💌
+    </button>
+
+    <div id="letter">
+      <h2>Will you choose us again? 💗</h2>
+
+      <p>
+        Even when we're miles apart,
+        you still make my days brighter.
+        You're the person I want to laugh with,
+        annoy lovingly, and make more memories with.
+      </p>
+
+      <p>
+        If our story started again tomorrow,
+        I'd still want you in every chapter. 🫶
+      </p>
+
+      <div class="couple">
+        <div class="bear">🐻</div>
+        <div class="panda">🐼</div>
+      </div>
+
+      <h2>Me + You = My favourite story 💞</h2>
+      <p>One more chapter together, Susu? 💗</p>
+    </div>
+  </div>
+</section>
 
 <script>
-for (let i = 0; i < 15; i++) {
-  let h = document.createElement('div');
-  h.className = 'float';
-  h.textContent = ['❤️','💕','💗','💖'][i % 4];
-  h.style.left = Math.random() * 100 + 'vw';
-  h.style.animationDelay = Math.random() * 7 + 's';
-  h.style.fontSize = (16 + Math.random() * 20) + 'px';
-  document.body.appendChild(h);
+function enterSite() {
+  document.getElementById("intro").style.display = "none";
+  document.getElementById("home").style.display = "flex";
+}
+
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
+  document.getElementById("letter").scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
+}
+
+for (let i = 0; i < 18; i++) {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = ["💗", "💕", "♡", "💖"][i % 4];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDelay = Math.random() * 8 + "s";
+  heart.style.animationDuration = (6 + Math.random() * 5) + "s";
+  heart.style.fontSize = (18 + Math.random() * 15) + "px";
+  document.body.appendChild(heart);
 }
 </script>
+
 </body>
 </html>
