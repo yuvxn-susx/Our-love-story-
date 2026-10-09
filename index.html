@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For My Susu ❤️</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  font-family: Georgia, serif;
+  text-align: center;
+  color: #77334d;
+  background: linear-gradient(135deg, #ffd6e4, #fff0e8, #f9d9f5);
+  overflow-x: hidden;
+}
+.card {
+  width: 100%;
+  max-width: 430px;
+  padding: 30px 22px;
+  background: #ffffffd9;
+  border-radius: 25px;
+  box-shadow: 0 12px 40px #b85b7625;
+  position: relative;
+  z-index: 1;
+}
+.heart {
+  font-size: 45px;
+  animation: beat 1s infinite alternate;
+}
+h1 { color: #d94f7c; }
+p { line-height: 1.8; }
+button {
+  border: 0;
+  border-radius: 28px;
+  padding: 13px 21px;
+  margin: 7px;
+  background: #e65380;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+#letter { display: none; }
+.float {
+  position: fixed;
+  bottom: -30px;
+  animation: rise 7s linear infinite;
+  opacity: .65;
+  pointer-events: none;
+}
+@keyframes beat {
+  to { transform: scale(1.18); }
+}
+@keyframes rise {
+  to { transform: translateY(-110vh) rotate(25deg); }
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="heart">❤️</div>
+  <p>A little corner of the internet,</p>
+  <h1>Made just for you, Susu 💗</h1>
+  <p>
+    Distance may keep us apart for now,
+    but you're still such a special part of my world.
+  </p>
+  <p>I've got one little question for you... 🥹</p>
+
+  <button onclick="document.getElementById('letter').style.display='block';this.style.display='none'">
+    Open my heart 💌
+  </button>
+
+  <div id="letter">
+    <h2>Will you choose us again? 💍</h2>
+    <p>
+      If I could start our story all over again,
+      I'd still want to meet you, laugh with you,
+      annoy you, and make a thousand more memories
+      with you.
+    </p>
+    <p>
+      Thank you for being you.
+      You're my favourite notification
+      and my favourite person. 🫶
+    </p>
+    <h2>One more chapter? ❤️</h2>
+    <p>Me and you, still choosing each other. 💕</p>
+  </div>
+</div>
+
+<script>
+for (let i = 0; i < 15; i++) {
+  let h = document.createElement('div');
+  h.className = 'float';
+  h.textContent = ['❤️','💕','💗','💖'][i % 4];
+  h.style.left = Math.random() * 100 + 'vw';
+  h.style.animationDelay = Math.random() * 7 + 's';
+  h.style.fontSize = (16 + Math.random() * 20) + 'px';
+  document.body.appendChild(h);
+}
+</script>
+</body>
+</html>
